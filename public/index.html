@@ -6,6 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>รายชื่อนักเรียน</h1>
+    <hr>
+
+    <button onclick="loadStudents()">โหลดรายชื่อนักเรียน</button>
+    <ul id="studentList"></ul>
+
+    <script>
+        async function loadStudents() {
+            const response = await fetch('/students');
+            const students = await response.json();
+            const studentList = document.getElementById('studentList');
+
+            list.innerHTML = "";
+
+            students. forEach(student => {
+                list.innerHTML += `
+                <list-item>${student.name}</list-item>
+              `;
+            });
+        }
+    </script>
+
+
 </body>
 </html>

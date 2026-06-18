@@ -1,0 +1,24 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "��\u0019\u000e#\u000e2\u000e\u0018\u000e4\u000e\u001b\u000e \u0000A\u000e\u0001\u000eI\u000e'\u000e(\u000e#\u000e5\u000e-\u000eH\u000e-\u000e\u0019\u000e\r\u0000 \u0000@\u000e%\u000e\u0002\u000e\u0017\u000e5\u000eH\u000e3\u0000\r\u0000 \u0000*\u000e2\u000e\u0002\u000e2\u000e'\u000e4\u000e \u000e2\u000e \u0000@\u000e\u0017\u000e\u0004\u000eB\u000e\u0019\u000eB\u000e%\u000e\"\u000e5\u000e*\u000e2\u000e#\u000e*\u000e\u0019\u000e@\u000e\u0017\u000e(\u000e\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mookp100/test-my-project-01.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mookp100/test-my-project-01/issues"
+  },
+  "homepage": "https://github.com/mookp100/test-my-project-01#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

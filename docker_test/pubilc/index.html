@@ -805,6 +805,170 @@
             margin-top: 16px;
         }
 
+        .user-manager {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .user-form,
+        .user-list {
+            position: relative;
+            padding: 26px;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 18px 52px rgba(5, 12, 30, 0.22);
+            backdrop-filter: blur(20px);
+        }
+
+        .user-form h3,
+        .user-list h3 {
+            margin: 0 0 18px;
+            font-size: 1.45rem;
+        }
+
+        .user-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        .field label {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--muted);
+        }
+
+        .field input,
+        .field select {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(10, 17, 32, 0.9);
+            color: var(--text);
+            border-radius: 14px;
+            padding: 14px 16px;
+            font: inherit;
+            outline: none;
+            transition: border-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .field input:focus,
+        .field select:focus {
+            border-color: rgba(100, 200, 255, 0.6);
+            box-shadow: 0 0 0 3px rgba(100, 200, 255, 0.18);
+        }
+
+        .user-form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+
+        .user-list-table {
+            display: grid;
+            gap: 14px;
+        }
+
+        .user-row {
+            display: grid;
+            grid-template-columns: 1.2fr 0.9fr 0.7fr 0.7fr auto;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .user-row strong {
+            display: block;
+            font-size: 1rem;
+        }
+
+        .user-row small,
+        .user-row span {
+            color: var(--muted);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 88px;
+            padding: 8px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            background: rgba(100, 200, 255, 0.15);
+            color: #a0e4ff;
+            border: 1px solid rgba(100, 200, 255, 0.20);
+        }
+
+        .status-online {
+            background: rgba(66, 229, 155, 0.12);
+            color: #7ef0b7;
+            border-color: rgba(66, 229, 155, 0.22);
+        }
+
+        .status-busy {
+            background: rgba(255, 186, 104, 0.12);
+            color: #ffd09c;
+            border-color: rgba(255, 186, 104, 0.22);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .action-btn {
+            border: none;
+            border-radius: 10px;
+            padding: 9px 12px;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 180ms ease, opacity 180ms ease;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .action-btn.edit {
+            background: rgba(100, 200, 255, 0.14);
+            color: #a7e9ff;
+        }
+
+        .action-btn.delete {
+            background: rgba(255, 124, 124, 0.14);
+            color: #ffb1b1;
+        }
+
+        .empty-state {
+            padding: 24px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            text-align: center;
+            color: var(--muted);
+            border: 1px dashed rgba(255, 255, 255, 0.12);
+        }
+
         @media (max-width: 1160px) {
             .stats-grid,
             .section-cards,
@@ -1067,6 +1231,61 @@
             </div>
         </section>
 
+        <section class="glass-panel" id="users">
+            <div class="section-headline">
+                <div>
+                    <h2>User Management</h2>
+                    <p>เพิ่มและจัดการข้อมูลผู้ใช้งานของระบบให้สะดวกต่อการดูแลและติดตามสถานะได้ทันที.</p>
+                </div>
+            </div>
+            <div class="user-manager">
+                <div class="user-form">
+                    <h3>เพิ่มผู้ใช้งาน</h3>
+                    <form id="userForm">
+                        <div class="user-form-grid">
+                            <div class="field full">
+                                <label for="fullName">ชื่อ-นามสกุล</label>
+                                <input id="fullName" name="full_name" type="text" placeholder="กรอกชื่อผู้ใช้งาน" required>
+                            </div>
+                            <div class="field">
+                                <label for="userEmail">อีเมล</label>
+                                <input id="userEmail" name="email" type="email" placeholder="name@example.com" required>
+                            </div>
+                            <div class="field">
+                                <label for="userPhone">เบอร์โทร</label>
+                                <input id="userPhone" name="phone" type="tel" placeholder="081-xxx-xxxx">
+                            </div>
+                            <div class="field">
+                                <label for="userRole">บทบาท</label>
+                                <select id="userRole" name="role">
+                                    <option value="Admin">Admin</option>
+                                    <option value="ผู้ดูแลระบบ">ผู้ดูแลระบบ</option>
+                                    <option value="นักศึกษา" selected>นักศึกษา</option>
+                                    <option value="ครู">ครู</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="userStatus">สถานะ</label>
+                                <select id="userStatus" name="status">
+                                    <option value="ออนไลน์" selected>ออนไลน์</option>
+                                    <option value="ว่าง">ว่าง</option>
+                                    <option value="ไม่ว่าง">ไม่ว่าง</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="user-form-actions">
+                            <button type="submit" class="btn btn-primary">บันทึกผู้ใช้</button>
+                            <button type="button" class="btn btn-secondary" id="cancelEditBtn" style="display:none;">ยกเลิก</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="user-list">
+                    <h3>รายชื่อผู้ใช้</h3>
+                    <div class="user-list-table" id="userList"></div>
+                </div>
+            </div>
+        </section>
+
         <section class="glass-panel">
             <div class="section-headline">
                 <div>
@@ -1277,7 +1496,141 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', loadTeachers);
+        const userForm = document.getElementById('userForm');
+        const userList = document.getElementById('userList');
+        const cancelEditBtn = document.getElementById('cancelEditBtn');
+        let editingUserId = null;
+
+        async function loadUsers() {
+            if (!userList) return;
+            userList.innerHTML = '<div class="empty-state">กำลังโหลดข้อมูลผู้ใช้...</div>';
+
+            try {
+                const response = await fetch('/api/users');
+                if (!response.ok) throw new Error('Failed to load users');
+                const users = await response.json();
+
+                if (!Array.isArray(users) || users.length === 0) {
+                    userList.innerHTML = '<div class="empty-state">ยังไม่มีผู้ใช้งานในระบบ</div>';
+                    return;
+                }
+
+                userList.innerHTML = users.map((user) => {
+                    const statusClass = user.status === 'ออนไลน์' ? 'status-online' : user.status === 'ไม่ว่าง' ? 'status-busy' : '';
+                    return `
+                        <div class="user-row">
+                            <div>
+                                <strong>${user.full_name || 'ไม่ระบุชื่อ'}</strong>
+                                <small>${user.email || 'ไม่มีอีเมล'}</small>
+                            </div>
+                            <div>
+                                <span>${user.role || 'นักศึกษา'}</span>
+                            </div>
+                            <div>
+                                <span>${user.phone || 'ไม่มีเบอร์'}</span>
+                            </div>
+                            <div>
+                                <span class="badge ${statusClass}">${user.status || 'ว่าง'}</span>
+                            </div>
+                            <div class="user-actions">
+                                <button type="button" class="action-btn edit" data-action="edit" data-id="${user.id}">แก้ไข</button>
+                                <button type="button" class="action-btn delete" data-action="delete" data-id="${user.id}">ลบ</button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            } catch (error) {
+                userList.innerHTML = '<div class="empty-state">ไม่สามารถโหลดข้อมูลผู้ใช้ได้</div>';
+            }
+        }
+
+        async function submitUser(event) {
+            event.preventDefault();
+            const formData = new FormData(userForm);
+            const payload = Object.fromEntries(formData.entries());
+
+            const url = editingUserId ? `/api/users/${editingUserId}` : '/api/users';
+            const method = editingUserId ? 'PUT' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                const result = await response.json();
+                if (!response.ok) {
+                    throw new Error(result.message || 'เกิดข้อผิดพลาด');
+                }
+
+                userForm.reset();
+                editingUserId = null;
+                cancelEditBtn.style.display = 'none';
+                userForm.querySelector('button[type="submit"]').textContent = 'บันทึกผู้ใช้';
+                await loadUsers();
+            } catch (error) {
+                alert(error.message || 'เกิดข้อผิดพลาด');
+            }
+        }
+
+        function populateEditForm(user) {
+            const fullNameInput = document.getElementById('fullName');
+            const emailInput = document.getElementById('userEmail');
+            const phoneInput = document.getElementById('userPhone');
+            const roleInput = document.getElementById('userRole');
+            const statusInput = document.getElementById('userStatus');
+
+            fullNameInput.value = user.full_name || '';
+            emailInput.value = user.email || '';
+            phoneInput.value = user.phone || '';
+            roleInput.value = user.role || 'นักศึกษา';
+            statusInput.value = user.status || 'ว่าง';
+
+            editingUserId = user.id;
+            cancelEditBtn.style.display = 'inline-flex';
+            userForm.querySelector('button[type="submit"]').textContent = 'อัปเดตผู้ใช้';
+            window.scrollTo({ top: document.getElementById('users').offsetTop - 24, behavior: 'smooth' });
+        }
+
+        async function handleUserListAction(event) {
+            const button = event.target.closest('button[data-action]');
+            if (!button) return;
+
+            const { action, id } = button.dataset;
+            const userId = Number(id);
+
+            if (action === 'delete') {
+                const confirmed = window.confirm('ต้องการลบผู้ใช้งานคนนี้ใช่หรือไม่?');
+                if (!confirmed) return;
+
+                const response = await fetch(`/api/users/${userId}`, { method: 'DELETE' });
+                if (response.ok) {
+                    await loadUsers();
+                }
+            }
+
+            if (action === 'edit') {
+                const response = await fetch('/api/users');
+                const users = await response.json();
+                const user = users.find((item) => item.id === userId);
+                if (user) populateEditForm(user);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadTeachers();
+            await loadUsers();
+        });
+
+        userForm.addEventListener('submit', submitUser);
+        userList.addEventListener('click', handleUserListAction);
+        cancelEditBtn.addEventListener('click', () => {
+            editingUserId = null;
+            cancelEditBtn.style.display = 'none';
+            userForm.reset();
+            userForm.querySelector('button[type="submit"]').textContent = 'บันทึกผู้ใช้';
+        });
 
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', event => {

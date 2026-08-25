@@ -563,21 +563,26 @@ a:hover {
 
 /* --- 4. HERO SECTION --- */
 .hero-section {
-  padding: 80px 0 60px;
+  padding: 90px 0 70px;
   position: relative;
+  text-align: center;
 }
 
 .hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 50px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: center;
+  gap: 26px;
+  width: 100%;
 }
 
 .hero-badge {
@@ -585,63 +590,70 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 18px;
+  padding: 8px 22px;
   border-radius: var(--radius-full);
   background: rgba(var(--primary-rgb), 0.08);
   border: 1px solid rgba(var(--primary-rgb), 0.25);
   color: var(--primary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 600;
   backdrop-filter: blur(12px);
   animation: pulse-glow 3s infinite;
 }
 
 .hero-title {
-  font-size: clamp(2.4rem, 4vw + 1rem, 4.2rem);
+  font-size: clamp(2.6rem, 5vw + 1rem, 4.5rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.03em;
 }
 
 .hero-desc {
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   color: var(--text-muted);
-  line-height: 1.8;
-  max-width: 600px;
+  line-height: 1.85;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
 .hero-cta {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 18px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .hero-live-stats {
   display: flex;
   align-items: center;
-  gap: 28px;
-  margin-top: 16px;
-  padding-top: 24px;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 24px;
+  padding-top: 30px;
   border-top: 1px solid var(--border);
+  width: 100%;
+  max-width: 780px;
 }
 
 .live-stat-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .live-stat-number {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
 .live-stat-label {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
+  margin-top: 2px;
 }
 
 /* Hero Visual & Interactive Terminal Card */
@@ -2117,64 +2129,6 @@ a:hover {
             <div class="live-stat-item">
               <span class="live-stat-number gradient-text-alt">28+</span>
               <span class="live-stat-label">รางวัลนวัตกรรมระดับชาติ</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Hero Visual: Futuristic Terminal Window -->
-        <div class="hero-visual">
-          <!-- Floating Interactive Badges -->
-          <div class="floating-chip chip-1 tilt-card">
-            <div class="chip-icon blue">
-              <i class="fa-solid fa-server"></i>
-            </div>
-            <div>
-              <small style="color: var(--text-muted); display: block; font-size: 0.72rem;">Server Uptime</small>
-              <strong style="font-size: 0.88rem; color: #34d399;">99.98% Online</strong>
-            </div>
-          </div>
-
-          <div class="floating-chip chip-2 tilt-card">
-            <div class="chip-icon green">
-              <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div>
-              <small style="color: var(--text-muted); display: block; font-size: 0.72rem;">Lab Security</small>
-              <strong style="font-size: 0.88rem; color: var(--primary);">Cisco Certified</strong>
-            </div>
-          </div>
-
-          <div class="terminal-window">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span class="terminal-dot red"></span>
-                <span class="terminal-dot yellow"></span>
-                <span class="terminal-dot green"></span>
-              </div>
-              <span class="terminal-title">bash - it-nstvc@root:~</span>
-              <i class="fa-solid fa-terminal" style="font-size: 0.8rem; color: var(--text-muted);"></i>
-            </div>
-            <div class="terminal-body">
-              <div class="terminal-code-line">
-                <span class="terminal-prompt">nstvc-it@system:~$</span> <span class="terminal-cmd">init-curriculum --track fullstack-ai</span>
-              </div>
-              <div class="terminal-output">
-                ✔ Loading IT Department NSTVC Core Modules...<br />
-                ✔ Connecting Cisco Networking & Cyber Defense Lab...<br />
-                ✔ Initializing AI & IoT Cloud Innovation Studio...<br />
-                🚀 Status: Ready to develop future engineers!
-              </div>
-              <div class="terminal-code-line">
-                <span class="terminal-prompt">nstvc-it@system:~$</span> <span class="terminal-cmd">npm start app.js</span>
-              </div>
-              <div class="terminal-output" style="color: #67e8f9;">
-                [SUCCESS] Web application server listening on port 3000.<br />
-                [API] /api/teachers, /api/students, /api/chatbot loaded.<br />
-                [AI-BOT] "น้อง IT-Bot" is online and ready to assist!
-              </div>
-              <div class="terminal-code-line">
-                <span class="terminal-prompt">nstvc-it@system:~$</span> <span class="terminal-cursor"></span>
-              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    container_name: my_node_app_container
+    ports:
+      - "3100:3000" # แก้เป็น 3100 เพื่อไม่ให้พอร์ตชนกัน [00:28:05]
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=my_database
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  db:
+    image: mysql:8.4.4
+    container_name: my_mysql_db_container
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Secret123
+      - MYSQL_DATABASE=my_database
+    ports:
+      - "3307:3306" # แมปพอร์ตออกเครื่องคอมพิวเตอร์หลักที่พอร์ต 3307
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data: # ประกาศถังเก็บข้อมูลถาวรของฐานข้อมูลบนฮาร์ดดิสก์หลัก

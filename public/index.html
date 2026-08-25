@@ -11,8 +11,2011 @@
   <!-- FontAwesome 6 CDN for rich tech icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Custom Stylesheet -->
+  <!-- External Stylesheet link -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Embedded Bulletproof Stylesheet -->
+  <style>
+/* ==========================================================================
+   IT NSTVC - Department of Information Technology Modern Design System
+   Glassmorphism, Cyberpunk Glows, Multi-Theme Engine & Responsive Layout
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap');
+
+/* --- 1. CSS VARIABLES & THEMES --- */
+:root {
+  /* Default: Cyber Dark Theme */
+  --font-main: 'Prompt', 'Kanit', 'Inter', -apple-system, sans-serif;
+  --font-heading: 'Kanit', 'Prompt', sans-serif;
+  --font-code: 'Fira Code', monospace;
+
+  --bg-base: #060913;
+  --bg-gradient: radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+                 radial-gradient(circle at 85% 25%, rgba(139, 92, 246, 0.10) 0%, transparent 45%),
+                 radial-gradient(circle at 50% 85%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                 linear-gradient(180deg, #070d1a 0%, #04060d 100%);
+  
+  --surface: rgba(14, 22, 43, 0.75);
+  --surface-hover: rgba(22, 34, 66, 0.85);
+  --surface-card: rgba(16, 26, 52, 0.65);
+  --surface-opaque: #0c1427;
+  --surface-subtle: rgba(255, 255, 255, 0.03);
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(0, 240, 255, 0.35);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+
+  --primary: #00f0ff;
+  --primary-rgb: 0, 240, 255;
+  --primary-glow: rgba(0, 240, 255, 0.35);
+  --secondary: #8b5cf6;
+  --secondary-glow: rgba(139, 92, 246, 0.35);
+  --accent: #ec4899;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  --text-glow: rgba(255, 255, 255, 0.95);
+
+  --nav-bg: rgba(8, 14, 28, 0.82);
+  --modal-overlay: rgba(3, 7, 18, 0.85);
+  
+  --card-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+  --card-shadow-hover: 0 25px 50px -12px rgba(0, 240, 255, 0.15), 0 0 0 1px rgba(0, 240, 255, 0.3);
+  --glow-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Theme 2: Clean Light Mode */
+[data-theme="light"] {
+  --bg-base: #f1f5f9;
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+                 radial-gradient(circle at 90% 30%, rgba(139, 92, 246, 0.07) 0%, transparent 40%),
+                 linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+  
+  --surface: rgba(255, 255, 255, 0.85);
+  --surface-hover: rgba(255, 255, 255, 0.98);
+  --surface-card: rgba(255, 255, 255, 0.9);
+  --surface-opaque: #ffffff;
+  --surface-subtle: rgba(0, 0, 0, 0.02);
+
+  --border: rgba(203, 213, 225, 0.7);
+  --border-glow: rgba(37, 99, 235, 0.4);
+  --border-subtle: rgba(226, 232, 240, 0.8);
+
+  --primary: #2563eb;
+  --primary-rgb: 37, 99, 235;
+  --primary-glow: rgba(37, 99, 235, 0.25);
+  --secondary: #7c3aed;
+  --secondary-glow: rgba(124, 58, 237, 0.25);
+  --accent: #db2777;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #94a3b8;
+  --text-glow: #0f172a;
+
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --modal-overlay: rgba(15, 23, 42, 0.6);
+  
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 20px 35px -10px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(37, 99, 235, 0.3);
+  --glow-shadow: 0 0 25px rgba(37, 99, 235, 0.15);
+}
+
+/* Theme 3: Neon Aurora Mode */
+[data-theme="aurora"] {
+  --bg-base: #070314;
+  --bg-gradient: radial-gradient(circle at 10% 20%, rgba(236, 72, 153, 0.18) 0%, transparent 40%),
+                 radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.22) 0%, transparent 45%),
+                 radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                 linear-gradient(180deg, #09031c 0%, #04010a 100%);
+  
+  --surface: rgba(23, 11, 48, 0.8);
+  --surface-hover: rgba(35, 18, 73, 0.9);
+  --surface-card: rgba(26, 13, 56, 0.7);
+  --surface-opaque: #160a32;
+  --surface-subtle: rgba(255, 255, 255, 0.04);
+
+  --border: rgba(236, 72, 153, 0.2);
+  --border-glow: rgba(236, 72, 153, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  --primary: #f43f5e;
+  --primary-rgb: 244, 63, 94;
+  --primary-glow: rgba(244, 63, 94, 0.4);
+  --secondary: #a855f7;
+  --secondary-glow: rgba(168, 85, 247, 0.4);
+  --accent: #10b981;
+
+  --text-main: #fdf2f8;
+  --text-muted: #cbd5e1;
+  --text-subtle: #94a3b8;
+  --text-glow: #ffffff;
+
+  --nav-bg: rgba(18, 8, 38, 0.85);
+  --modal-overlay: rgba(8, 2, 18, 0.88);
+  
+  --card-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(244, 63, 94, 0.1);
+  --card-shadow-hover: 0 25px 55px -12px rgba(244, 63, 94, 0.25), 0 0 0 1px rgba(244, 63, 94, 0.4);
+  --glow-shadow: 0 0 35px rgba(244, 63, 94, 0.3);
+}
+
+/* --- 2. GLOBAL RESET & BASE --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-base);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  transition: background var(--transition-normal), color var(--transition-normal);
+}
+
+/* Canvas Particle Background */
+#particleCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+/* Top Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  z-index: 1000;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
+
+.container {
+  width: min(1280px, calc(100% - 40px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Gradients and Glows */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gradient-text-alt {
+  background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  backdrop-filter: blur(12px);
+}
+
+.badge-primary {
+  background: rgba(var(--primary-rgb), 0.12);
+  border-color: rgba(var(--primary-rgb), 0.3);
+  color: var(--primary);
+}
+
+.badge-secondary {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #c084fc;
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #34d399;
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #fbbf24;
+}
+
+/* Status Indicator Dot */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.online {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.status-dot.busy {
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.status-dot.in-class {
+  background: #3b82f6;
+  box-shadow: 0 0 8px #3b82f6;
+}
+
+.status-dot.offline {
+  background: #64748b;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: #050b18;
+  font-weight: 700;
+  box-shadow: 0 10px 25px -5px var(--primary-glow);
+}
+
+[data-theme="light"] .btn-primary {
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 15px 35px -5px var(--primary-glow);
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-main);
+  backdrop-filter: blur(16px);
+}
+
+.btn-secondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-glow);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background: rgba(var(--primary-rgb), 0.1);
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  border-radius: var(--radius-lg);
+}
+
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: var(--radius-md);
+  display: grid;
+  place-items: center;
+}
+
+/* Glass Panel Card */
+.glass-panel {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-panel:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+/* --- 3. NAVBAR --- */
+.navbar-wrapper {
+  position: sticky;
+  top: 16px;
+  z-index: 100;
+  padding: 0 20px;
+}
+
+.navbar {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-normal);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: grid;
+  place-items: center;
+  color: #070d1a;
+  font-size: 1.3rem;
+  font-weight: 900;
+  box-shadow: 0 0 18px var(--primary-glow);
+}
+
+[data-theme="light"] .brand-icon {
+  color: #ffffff;
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-dropdown-btn,
+.sound-toggle-btn {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-dropdown-btn:hover,
+.sound-toggle-btn:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-glow);
+  color: var(--primary);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* --- 4. HERO SECTION --- */
+.hero-section {
+  padding: 80px 0 60px;
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero-badge {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(var(--primary-rgb), 0.08);
+  border: 1px solid rgba(var(--primary-rgb), 0.25);
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  backdrop-filter: blur(12px);
+  animation: pulse-glow 3s infinite;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 4vw + 1rem, 4.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.hero-live-stats {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.live-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.live-stat-number {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.live-stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Hero Visual & Interactive Terminal Card */
+.hero-visual {
+  position: relative;
+}
+
+.terminal-window {
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow), 0 0 50px rgba(0, 240, 255, 0.1);
+  overflow: hidden;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ef4444; }
+.terminal-dot.yellow { background: #f59e0b; }
+.terminal-dot.green { background: #10b981; }
+
+.terminal-title {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.terminal-body {
+  padding: 24px;
+  font-family: var(--font-code);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #a5f3fc;
+  min-height: 260px;
+}
+
+.terminal-code-line {
+  margin-bottom: 8px;
+}
+
+.terminal-prompt {
+  color: #38bdf8;
+  font-weight: bold;
+}
+
+.terminal-cmd {
+  color: #f1f5f9;
+}
+
+.terminal-output {
+  color: #94a3b8;
+  padding-left: 14px;
+  border-left: 2px solid var(--border);
+  margin: 8px 0 14px;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--primary);
+  vertical-align: middle;
+  animation: blink 1s infinite;
+}
+
+/* Floating interactive chips on hero */
+.floating-chip {
+  position: absolute;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+  animation: float 6s ease-in-out infinite;
+}
+
+.chip-1 {
+  top: -20px;
+  right: -10px;
+  animation-delay: 0s;
+}
+
+.chip-2 {
+  bottom: -25px;
+  left: -20px;
+  animation-delay: 3s;
+}
+
+.chip-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
+.chip-icon.blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.chip-icon.green { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+/* --- 5. STATS OVERVIEW SECTION --- */
+.stats-section {
+  padding: 40px 0 60px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  padding: 26px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: rgba(var(--primary-rgb), 0.1);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.stat-name {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* --- 6. SECTION HEADERS --- */
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-tag {
+  color: var(--primary);
+  font-family: var(--font-code);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 800;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* --- 7. COURSE CURRICULUM EXPLORER --- */
+.curriculum-section {
+  padding: 60px 0;
+}
+
+.curriculum-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.tab-btn {
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--text-main);
+  border-color: var(--border-glow);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #050b18;
+  font-weight: 700;
+  border-color: transparent;
+  box-shadow: 0 10px 25px -5px var(--primary-glow);
+}
+
+[data-theme="light"] .tab-btn.active {
+  color: #ffffff;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.course-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.course-code {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.course-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 6px 0 10px;
+  line-height: 1.4;
+}
+
+.course-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.course-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.course-credits {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+/* --- 8. TEACHERS & FACULTY SHOWCASE --- */
+.teachers-section {
+  padding: 60px 0;
+}
+
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.teacher-card {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.teacher-avatar-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 25px var(--primary-glow);
+  position: relative;
+}
+
+.teacher-avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface-opaque);
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.teacher-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: var(--primary);
+  color: #050b18;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+}
+
+[data-theme="light"] .teacher-badge {
+  color: #ffffff;
+}
+
+.teacher-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.teacher-pos {
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.teacher-expertise {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.teacher-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.teacher-tag {
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-subtle);
+}
+
+.teacher-contact-btn {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* --- 9. STUDENT & USER MANAGEMENT HUB --- */
+.students-section {
+  padding: 60px 0;
+}
+
+.hub-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 20px 24px;
+}
+
+.hub-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  flex: 1;
+  min-width: 260px;
+  transition: all var(--transition-fast);
+}
+
+.hub-search-box:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.hub-search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.hub-filter-select {
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.hub-filter-select:focus {
+  border-color: var(--primary);
+}
+
+.hub-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Student Table View */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.data-table th {
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+[data-theme="light"] .data-table th {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.data-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.data-table tr:hover td {
+  background: var(--surface-hover);
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-avatar-mini {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #050b18;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .user-avatar-mini {
+  color: #ffffff;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.action-icon-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text-main);
+  border-color: var(--border-glow);
+}
+
+.action-icon-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+/* --- 10. SMART FACILITIES & LABS SHOWCASE --- */
+.facilities-section {
+  padding: 60px 0;
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.facility-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.facility-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.facility-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: rgba(var(--primary-rgb), 0.12);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-size: 1.4rem;
+}
+
+.facility-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.facility-room {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.facility-specs-box {
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* --- 11. INTERACTIVE GPA & GPAX CALCULATOR TOOL --- */
+.calculator-section {
+  padding: 60px 0;
+}
+
+.calc-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  padding: 40px;
+}
+
+.calc-courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.calc-course-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.calc-input {
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 0.92rem;
+  outline: none;
+}
+
+.calc-input:focus {
+  border-color: var(--primary);
+}
+
+.calc-result-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  background: var(--surface-opaque);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.gpa-gauge {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--primary) 0deg, var(--secondary) 180deg, var(--border) 180deg 360deg);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.gpa-gauge-inner {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--surface-opaque);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gpa-value-text {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.gpa-label-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.honors-badge {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-top: 10px;
+}
+
+/* --- 12. EVENTS & AWARDS TIMELINE --- */
+.events-section {
+  padding: 60px 0;
+}
+
+.events-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.event-card {
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-left: 4px solid var(--primary);
+}
+
+.event-date-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+}
+
+.event-date {
+  font-family: var(--font-code);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+.event-type {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.event-info {
+  flex: 1;
+}
+
+.event-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.event-location {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --- 13. CONTACT & ADMISSION FORM --- */
+.contact-section {
+  padding: 60px 0 80px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.contact-info-panel {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.contact-form-panel {
+  padding: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.form-input, .form-textarea, .form-select {
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* --- 14. FOOTER --- */
+.footer {
+  padding: 60px 0 30px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+[data-theme="light"] .footer {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 16px 0;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text-main);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-link {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--primary);
+  padding-left: 6px;
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* --- 15. FLOATING AI CHATBOT WIDGET ("น้อง IT-Bot") --- */
+.chatbot-trigger {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 10px 30px var(--primary-glow);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #050b18;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 990;
+  transition: all var(--transition-bounce);
+}
+
+[data-theme="light"] .chatbot-trigger {
+  color: #ffffff;
+}
+
+.chatbot-trigger:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.chatbot-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--bg-base);
+}
+
+.chatbot-window {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  width: min(390px, calc(100vw - 48px));
+  height: 540px;
+  border-radius: var(--radius-xl);
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 30px var(--primary-glow);
+  display: flex;
+  flex-direction: column;
+  z-index: 990;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.95);
+  transition: all var(--transition-normal);
+}
+
+.chatbot-window.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0) scale(1);
+}
+
+.chatbot-header {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(139, 92, 246, 0.15));
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatbot-bot-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chatbot-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: grid;
+  place-items: center;
+  color: #050b18;
+  font-size: 1.1rem;
+}
+
+[data-theme="light"] .chatbot-avatar {
+  color: #ffffff;
+}
+
+.chatbot-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--text-main);
+}
+
+.chatbot-status {
+  font-size: 0.72rem;
+  color: #34d399;
+}
+
+.chatbot-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-bubble {
+  max-width: 82%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.chat-bubble.bot {
+  align-self: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #050b18;
+  font-weight: 500;
+  border-bottom-right-radius: 4px;
+}
+
+[data-theme="light"] .chat-bubble.user {
+  color: #ffffff;
+}
+
+.chatbot-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0 16px 12px;
+}
+
+.suggestion-chip {
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.suggestion-chip:hover {
+  background: rgba(var(--primary-rgb), 0.15);
+  border-color: var(--primary);
+}
+
+.chatbot-input-area {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-input {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 10px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.chatbot-input:focus {
+  border-color: var(--primary);
+}
+
+/* --- 16. MODALS & TOASTS --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--modal-overlay);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-card {
+  width: min(580px, 100%);
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow), 0 0 50px rgba(0, 240, 255, 0.15);
+  overflow: hidden;
+  transform: translateY(30px) scale(0.95);
+  transition: all var(--transition-normal);
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-header {
+  padding: 20px 26px;
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  color: var(--text-main);
+}
+
+.modal-body {
+  padding: 26px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.modal-footer {
+  padding: 16px 26px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Toast Container */
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1100;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: all;
+  min-width: 320px;
+  max-width: 420px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  background: var(--surface-opaque);
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transform: translateX(120%);
+  transition: all var(--transition-bounce);
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+.toast-icon {
+  font-size: 1.3rem;
+}
+
+.toast.success { border-left: 4px solid var(--success); }
+.toast.success .toast-icon { color: var(--success); }
+
+.toast.error { border-left: 4px solid var(--danger); }
+.toast.error .toast-icon { color: var(--danger); }
+
+.toast.info { border-left: 4px solid var(--primary); }
+.toast.info .toast-icon { color: var(--primary); }
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.toast-message {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* --- 17. ANIMATIONS & KEYFRAMES --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.2); }
+  50% { box-shadow: 0 0 28px rgba(var(--primary-rgb), 0.45); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --- 18. RESPONSIVE BREAKPOINTS --- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .calc-container {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-live-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .hub-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-course-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Print Stylesheet for Student List */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .navbar-wrapper,
+  .hero-section,
+  .stats-section,
+  .curriculum-section,
+  .teachers-section,
+  .facilities-section,
+  .calculator-section,
+  .events-section,
+  .contact-section,
+  .footer,
+  .chatbot-trigger,
+  .chatbot-window,
+  .hub-controls,
+  .table-actions,
+  #particleCanvas,
+  .scroll-progress {
+    display: none !important;
+  }
+
+  .students-section {
+    padding: 0 !important;
+  }
+
+  .data-table {
+    border: 1px solid #ddd !important;
+    color: black !important;
+  }
+
+  .data-table th, .data-table td {
+    border-bottom: 1px solid #ddd !important;
+    color: black !important;
+  }
+}
+
+  </style>
 </head>
 <body>
 
@@ -755,7 +2758,1321 @@
   <!-- ==================== 14. TOAST CONTAINER ==================== -->
   <div id="toastContainer" class="toast-container"></div>
 
-  <!-- Main JavaScript App Engine -->
+  <!-- Embedded Bulletproof JavaScript Engine -->
+  <script>
+/**
+ * IT NSTVC - Interactive Application Engine
+ * Includes Particle System, Web Audio FX, Student Management Hub,
+ * GPA Calculator, AI Chatbot, 3D Card Tilt, Themes, and Toast Alerts
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  initThemeEngine();
+  initSoundEngine();
+  initParticleBackground();
+  initScrollEffects();
+  initCounterAnimations();
+  initCurriculumTabs();
+  initTeachersSection();
+  initFacilitiesSection();
+  initStudentsHub();
+  initGpaCalculator();
+  initEventsSection();
+  initContactForm();
+  initChatbot();
+});
+
+/* ==========================================================================
+   1. THEME ENGINE (Cyber Dark, Clean Light, Neon Aurora)
+   ========================================================================== */
+function initThemeEngine() {
+  const themeBtn = document.getElementById('themeToggleBtn');
+  const themes = ['dark', 'light', 'aurora'];
+  let currentTheme = localStorage.getItem('it_nstvc_theme') || 'dark';
+
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  updateThemeIcon(currentTheme);
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      playSound('click');
+      const nextIndex = (themes.indexOf(currentTheme) + 1) % themes.length;
+      currentTheme = themes[nextIndex];
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      localStorage.setItem('it_nstvc_theme', currentTheme);
+      updateThemeIcon(currentTheme);
+      showToast('เปลี่ยนธีมสำเร็จ', `ใช้งานธีม: ${getThemeName(currentTheme)}`, 'info');
+    });
+  }
+}
+
+function updateThemeIcon(theme) {
+  const icon = document.querySelector('#themeToggleBtn i');
+  if (!icon) return;
+  if (theme === 'light') {
+    icon.className = 'fa-solid fa-sun';
+  } else if (theme === 'aurora') {
+    icon.className = 'fa-solid fa-wand-magic-sparkles';
+  } else {
+    icon.className = 'fa-solid fa-moon';
+  }
+}
+
+function getThemeName(theme) {
+  switch (theme) {
+    case 'light': return 'Clean Light Mode';
+    case 'aurora': return 'Neon Aurora Cyber';
+    default: return 'Cyber Dark Mode';
+  }
+}
+
+/* ==========================================================================
+   2. WEB AUDIO SOUND FX ENGINE (Synthesized UI Feedback)
+   ========================================================================== */
+let audioCtx = null;
+let soundEnabled = true;
+
+function initSoundEngine() {
+  const soundBtn = document.getElementById('soundToggleBtn');
+  soundEnabled = localStorage.getItem('it_nstvc_sound') !== 'disabled';
+  updateSoundIcon();
+
+  if (soundBtn) {
+    soundBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      localStorage.setItem('it_nstvc_sound', soundEnabled ? 'enabled' : 'disabled');
+      updateSoundIcon();
+      if (soundEnabled) {
+        playSound('success');
+        showToast('เปิดเสียงเอฟเฟกต์', 'ระบบเสียง UI Interactive เปิดใช้งานแล้ว', 'success');
+      } else {
+        showToast('ปิดเสียงเอฟเฟกต์', 'ระบบเสียง UI Interactive ปิดอยู่', 'info');
+      }
+    });
+  }
+}
+
+function updateSoundIcon() {
+  const icon = document.querySelector('#soundToggleBtn i');
+  if (!icon) return;
+  icon.className = soundEnabled ? 'fa-solid fa-volume-high' : 'fa-solid fa-volume-xmark';
+}
+
+function playSound(type) {
+  if (!soundEnabled) return;
+  try {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    const now = audioCtx.currentTime;
+
+    if (type === 'click') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, now);
+      osc.frequency.exponentialRampToValueAtTime(400, now + 0.05);
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+      osc.start(now);
+      osc.stop(now + 0.05);
+    } else if (type === 'success') {
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(523.25, now); // C5
+      osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+      osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+      osc.start(now);
+      osc.stop(now + 0.35);
+    } else if (type === 'error') {
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(250, now);
+      osc.frequency.linearRampToValueAtTime(150, now + 0.15);
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
+      osc.start(now);
+      osc.stop(now + 0.18);
+    } else if (type === 'pop') {
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1200, now);
+      osc.frequency.exponentialRampToValueAtTime(300, now + 0.08);
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    }
+  } catch (e) {
+    console.debug('Audio error:', e);
+  }
+}
+
+/* ==========================================================================
+   3. PARTICLE CANVAS BACKGROUND
+   ========================================================================== */
+function initParticleBackground() {
+  const canvas = document.getElementById('particleCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  const particles = [];
+  const particleCount = Math.min(Math.floor(window.innerWidth / 22), 65);
+  const mouse = { x: null, y: null, radius: 140 };
+
+  window.addEventListener('mousemove', (e) => {
+    mouse.x = e.x;
+    mouse.y = e.y;
+  });
+
+  window.addEventListener('mouseout', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.8;
+      this.vy = (Math.random() - 0.5) * 0.8;
+      this.radius = Math.random() * 2 + 1;
+      this.color = Math.random() > 0.5 ? 'rgba(0, 240, 255,' : 'rgba(139, 92, 246,';
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+
+      // Mouse proximity interaction
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          this.x -= (dx / dist) * force * 2;
+          this.y -= (dy / dist) * force * 2;
+        }
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `${this.color} 0.7)`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < 120) {
+          const alpha = 1 - dist / 120;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(0, 240, 255, ${alpha * 0.18})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+/* ==========================================================================
+   4. SCROLL EFFECTS & NAVBAR
+   ========================================================================== */
+function initScrollEffects() {
+  const progressBar = document.getElementById('scrollProgress');
+  const mobileBtn = document.getElementById('mobileMenuBtn');
+  const navMenu = document.getElementById('navMenu');
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    if (progressBar) {
+      progressBar.style.width = scrolled + '%';
+    }
+  });
+
+  if (mobileBtn && navMenu) {
+    mobileBtn.addEventListener('click', () => {
+      playSound('click');
+      const isVisible = navMenu.style.display === 'flex';
+      navMenu.style.display = isVisible ? 'none' : 'flex';
+      navMenu.style.flexDirection = 'column';
+      navMenu.style.position = 'absolute';
+      navMenu.style.top = '70px';
+      navMenu.style.left = '20px';
+      navMenu.style.right = '20px';
+      navMenu.style.background = 'var(--surface-opaque)';
+      navMenu.style.padding = '20px';
+      navMenu.style.borderRadius = '16px';
+      navMenu.style.border = '1px solid var(--border)';
+    });
+  }
+
+  // Smooth scroll links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          playSound('click');
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+          if (window.innerWidth <= 768 && navMenu) {
+            navMenu.style.display = 'none';
+          }
+        }
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   5. COUNTER ANIMATIONS (Stats)
+   ========================================================================== */
+function initCounterAnimations() {
+  const statNumbers = document.querySelectorAll('.count-up');
+  let started = false;
+
+  function countUp(el) {
+    const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    const suffix = el.getAttribute('data-suffix') || '';
+    let current = 0;
+    const duration = 1800;
+    const stepTime = 25;
+    const steps = duration / stepTime;
+    const increment = target / steps;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        el.textContent = target + suffix;
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(current) + suffix;
+      }
+    }, stepTime);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          statNumbers.forEach((el) => countUp(el));
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  const statsSection = document.getElementById('statsSection');
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+}
+
+/* ==========================================================================
+   6. CURRICULUM EXPLORER (ปวช. & ปวส.)
+   ========================================================================== */
+let globalCoursesData = null;
+
+async function initCurriculumTabs() {
+  const tabs = document.querySelectorAll('.curriculum-tab-btn');
+  const container = document.getElementById('coursesGrid');
+
+  try {
+    const res = await fetch('/api/courses');
+    globalCoursesData = await res.json();
+    renderCourses('pvs'); // Default show PVS
+  } catch (e) {
+    console.error('Error loading courses:', e);
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      playSound('click');
+      tabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+      const level = tab.getAttribute('data-level');
+      renderCourses(level);
+    });
+  });
+}
+
+function renderCourses(level) {
+  const container = document.getElementById('coursesGrid');
+  if (!container || !globalCoursesData) return;
+
+  const courses = globalCoursesData[level] || [];
+  container.innerHTML = courses
+    .map(
+      (course) => `
+    <div class="glass-panel course-card tilt-card">
+      <div>
+        <div class="course-code">${course.code}</div>
+        <h3 class="course-title">${course.title}</h3>
+        <p class="course-desc">${course.desc}</p>
+      </div>
+      <div class="course-footer">
+        <span class="badge badge-secondary">${course.tag}</span>
+        <span class="course-credits"><i class="fa-solid fa-clock-rotate-left"></i> ${course.credits}</span>
+      </div>
+    </div>
+  `
+    )
+    .join('');
+
+  apply3DTilt();
+}
+
+/* ==========================================================================
+   7. TEACHERS & FACULTY SECTION
+   ========================================================================== */
+let globalTeachersData = [];
+
+async function initTeachersSection() {
+  const container = document.getElementById('teachersGrid');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/teachers');
+    globalTeachersData = await res.json();
+    renderTeachers(globalTeachersData);
+  } catch (e) {
+    console.error('Error loading teachers:', e);
+  }
+}
+
+function renderTeachers(teachers) {
+  const container = document.getElementById('teachersGrid');
+  if (!container) return;
+
+  container.innerHTML = teachers
+    .map((t) => {
+      const initials = t.full_name.substring(0, 3);
+      return `
+      <div class="glass-panel teacher-card tilt-card">
+        <div class="teacher-avatar-box">
+          <div class="teacher-avatar-inner">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <span class="teacher-badge">${t.badge}</span>
+        </div>
+        <div>
+          <h3 class="teacher-name">${t.full_name}</h3>
+          <div class="teacher-pos">${t.position}</div>
+        </div>
+        <p class="teacher-expertise">${t.expertise}</p>
+        <div class="teacher-tags">
+          ${(t.tags || []).map((tag) => `<span class="teacher-tag">${tag}</span>`).join('')}
+        </div>
+        <button class="btn btn-secondary btn-sm teacher-contact-btn" onclick="openTeacherModal(${t.id})">
+          <i class="fa-solid fa-address-card"></i> ข้อมูล & ติดต่อ
+        </button>
+      </div>
+    `;
+    })
+    .join('');
+
+  apply3DTilt();
+}
+
+window.openTeacherModal = function (teacherId) {
+  playSound('pop');
+  const teacher = globalTeachersData.find((t) => t.id === teacherId);
+  if (!teacher) return;
+
+  const modalBody = document.getElementById('generalModalBody');
+  const modalTitle = document.getElementById('generalModalTitle');
+  if (!modalBody || !modalTitle) return;
+
+  modalTitle.textContent = `ข้อมูลคณาจารย์ - ${teacher.full_name}`;
+  modalBody.innerHTML = `
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+        <div style="width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: grid; place-items: center; font-size: 1.8rem; color: #050b18;">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+        <div>
+          <h4 style="font-size: 1.2rem; margin-bottom: 4px;">${teacher.full_name}</h4>
+          <span class="badge badge-primary">${teacher.position}</span>
+        </div>
+      </div>
+      <div>
+        <strong style="color: var(--primary); display: block; margin-bottom: 4px;">วุฒิการศึกษา:</strong>
+        <p style="color: var(--text-muted);">${teacher.education}</p>
+      </div>
+      <div>
+        <strong style="color: var(--primary); display: block; margin-bottom: 4px;">ความเชี่ยวชาญพิเศษ:</strong>
+        <p style="color: var(--text-muted);">${teacher.expertise}</p>
+      </div>
+      <div>
+        <strong style="color: var(--primary); display: block; margin-bottom: 4px;">ห้องพัก / สถานที่ติดต่อ:</strong>
+        <p style="color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> ${teacher.room}</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px;">
+        <div style="background: var(--surface-subtle); padding: 12px; border-radius: 10px; border: 1px solid var(--border);">
+          <small style="color: var(--text-subtle); display: block;">อีเมลติดต่อ</small>
+          <strong>${teacher.email}</strong>
+        </div>
+        <div style="background: var(--surface-subtle); padding: 12px; border-radius: 10px; border: 1px solid var(--border);">
+          <small style="color: var(--text-subtle); display: block;">เบอร์โทรศัพท์</small>
+          <strong>${teacher.phone}</strong>
+        </div>
+      </div>
+      <div style="margin-top: 10px; display: flex; align-items: center; gap: 8px;">
+        <span class="status-dot online"></span>
+        <span style="font-size: 0.88rem; color: #34d399;">สถานะ: ${teacher.status}</span>
+      </div>
+    </div>
+  `;
+
+  openModal('generalModal');
+};
+
+/* ==========================================================================
+   8. SMART FACILITIES & LABS SHOWCASE
+   ========================================================================== */
+let globalFacilities = [];
+
+async function initFacilitiesSection() {
+  const container = document.getElementById('facilitiesGrid');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/facilities');
+    globalFacilities = await res.json();
+    renderFacilities(globalFacilities);
+  } catch (e) {
+    console.error('Error loading facilities:', e);
+  }
+}
+
+function renderFacilities(facilities) {
+  const container = document.getElementById('facilitiesGrid');
+  if (!container) return;
+
+  container.innerHTML = facilities
+    .map(
+      (f) => `
+    <div class="glass-panel facility-card tilt-card">
+      <div>
+        <div class="facility-header">
+          <div class="facility-icon-box">
+            <i class="fa-solid ${f.icon}"></i>
+          </div>
+          <span class="badge badge-primary">${f.tag}</span>
+        </div>
+        <h3 class="facility-name">${f.name}</h3>
+        <div class="facility-room"><i class="fa-solid fa-door-open"></i> ${f.room} • ${f.seats}</div>
+      </div>
+      <div class="facility-specs-box">
+        <strong style="color: var(--text-main); display: block; margin-bottom: 4px;"><i class="fa-solid fa-microchip"></i> สเปกอุปกรณ์:</strong>
+        <span style="color: var(--text-muted);">${f.specs}</span>
+        <strong style="color: var(--text-main); display: block; margin-top: 8px; margin-bottom: 4px;"><i class="fa-solid fa-code"></i> ซอฟต์แวร์:</strong>
+        <span style="color: var(--text-muted);">${f.software}</span>
+      </div>
+      <button class="btn btn-outline-primary btn-sm" onclick="bookLabSimulator('${f.name}')">
+        <i class="fa-solid fa-calendar-check"></i> จำลองจองเวลาใช้งานห้อง Lab
+      </button>
+    </div>
+  `
+    )
+    .join('');
+
+  apply3DTilt();
+}
+
+window.bookLabSimulator = function (labName) {
+  playSound('success');
+  createConfetti();
+  showToast('จองห้อง Lab สำเร็จ (Simulation)', `ระบบบันทึกคำขอจอง ${labName} เรียบร้อยแล้ว`, 'success');
+};
+
+/* ==========================================================================
+   9. STUDENT & PERSONNEL MANAGEMENT HUB (CRUD)
+   ========================================================================== */
+let studentsList = [];
+let editingStudentId = null;
+
+async function initStudentsHub() {
+  const searchInput = document.getElementById('studentSearchInput');
+  const levelFilter = document.getElementById('studentLevelFilter');
+  const addBtn = document.getElementById('addStudentBtn');
+  const exportCsvBtn = document.getElementById('exportCsvBtn');
+  const exportJsonBtn = document.getElementById('exportJsonBtn');
+  const printBtn = document.getElementById('printListBtn');
+  const studentForm = document.getElementById('studentForm');
+
+  await fetchStudents();
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => filterAndRenderStudents());
+  }
+
+  if (levelFilter) {
+    levelFilter.addEventListener('change', () => {
+      playSound('click');
+      filterAndRenderStudents();
+    });
+  }
+
+  if (addBtn) {
+    addBtn.addEventListener('click', () => {
+      playSound('pop');
+      editingStudentId = null;
+      document.getElementById('studentModalTitle').textContent = 'เพิ่มข้อมูลนักศึกษา / สมาชิกใหม่';
+      if (studentForm) studentForm.reset();
+      openModal('studentModal');
+    });
+  }
+
+  if (exportCsvBtn) {
+    exportCsvBtn.addEventListener('click', () => exportStudentsCSV());
+  }
+
+  if (exportJsonBtn) {
+    exportJsonBtn.addEventListener('click', () => exportStudentsJSON());
+  }
+
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      playSound('click');
+      window.print();
+    });
+  }
+
+  if (studentForm) {
+    studentForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await handleStudentFormSubmit();
+    });
+  }
+}
+
+async function fetchStudents() {
+  try {
+    const res = await fetch('/api/users');
+    studentsList = await res.json();
+    filterAndRenderStudents();
+  } catch (e) {
+    console.error('Error fetching students:', e);
+  }
+}
+
+function filterAndRenderStudents() {
+  const searchVal = (document.getElementById('studentSearchInput')?.value || '').toLowerCase().trim();
+  const levelVal = document.getElementById('studentLevelFilter')?.value || 'all';
+  const tableBody = document.getElementById('studentTableBody');
+  if (!tableBody) return;
+
+  const filtered = studentsList.filter((s) => {
+    const matchSearch =
+      (s.full_name || '').toLowerCase().includes(searchVal) ||
+      (s.student_id || '').toLowerCase().includes(searchVal) ||
+      (s.email || '').toLowerCase().includes(searchVal) ||
+      (s.track || '').toLowerCase().includes(searchVal);
+
+    const matchLevel = levelVal === 'all' || (s.level || '').includes(levelVal);
+    return matchSearch && matchLevel;
+  });
+
+  if (filtered.length === 0) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="7" style="text-align: center; padding: 40px; color: var(--text-muted);">
+          <i class="fa-solid fa-folder-open" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+          ไม่พบข้อมูลที่ค้นหา
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tableBody.innerHTML = filtered
+    .map((s) => {
+      const initials = (s.full_name || 'IT')
+        .split(' ')
+        .map((n) => n[0])
+        .slice(0, 2)
+        .join('');
+      const statusClass = getStatusDotClass(s.status);
+
+      return `
+      <tr>
+        <td>
+          <span style="font-family: var(--font-code); font-size: 0.85rem; color: var(--primary);">${s.student_id || '-'}</span>
+        </td>
+        <td>
+          <div class="user-cell">
+            <div class="user-avatar-mini">${initials}</div>
+            <div>
+              <strong>${s.full_name}</strong>
+              <small style="display: block; color: var(--text-muted);">${s.email}</small>
+            </div>
+          </div>
+        </td>
+        <td><span class="badge badge-secondary">${s.level || 'ปวส.'}</span></td>
+        <td><span style="color: var(--text-muted); font-size: 0.88rem;">${s.track || 'IT'}</span></td>
+        <td><strong style="color: #fbbf24;">${s.gpa || '3.50'}</strong></td>
+        <td>
+          <button onclick="toggleStudentStatus(${s.id})" style="background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+            <span class="status-dot ${statusClass}"></span>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">${s.status || 'ออนไลน์'}</span>
+          </button>
+        </td>
+        <td>
+          <div class="table-actions">
+            <button class="action-icon-btn" title="แก้ไขข้อมูล" onclick="openEditStudentModal(${s.id})">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="action-icon-btn delete" title="ลบข้อมูล" onclick="deleteStudent(${s.id})">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+    })
+    .join('');
+}
+
+function getStatusDotClass(status) {
+  if (!status) return 'online';
+  if (status.includes('ออนไลน์') || status.includes('พร้อม')) return 'online';
+  if (status.includes('เรียน') || status.includes('สอน')) return 'in-class';
+  if (status.includes('ไม่ว่าง') || status.includes('ธุระ')) return 'busy';
+  return 'online';
+}
+
+window.toggleStudentStatus = async function (id) {
+  playSound('click');
+  const student = studentsList.find((s) => s.id === id);
+  if (!student) return;
+
+  const statuses = ['ออนไลน์', 'ติดเรียน Lab', 'ว่าง', 'พักเบรก'];
+  const nextIdx = (statuses.indexOf(student.status) + 1) % statuses.length;
+  student.status = statuses[nextIdx];
+
+  try {
+    await fetch(`/api/users/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: student.status })
+    });
+    filterAndRenderStudents();
+    showToast('อัปเดตสถานะ', `${student.full_name} -> ${student.status}`, 'info');
+  } catch (e) {
+    console.error('Error updating status:', e);
+  }
+};
+
+window.openEditStudentModal = function (id) {
+  playSound('pop');
+  const student = studentsList.find((s) => s.id === id);
+  if (!student) return;
+
+  editingStudentId = id;
+  document.getElementById('studentModalTitle').textContent = 'แก้ไขข้อมูลนักศึกษา';
+  document.getElementById('formFullName').value = student.full_name || '';
+  document.getElementById('formStudentId').value = student.student_id || '';
+  document.getElementById('formLevel').value = student.level || 'ปวส.1';
+  document.getElementById('formTrack').value = student.track || '';
+  document.getElementById('formEmail').value = student.email || '';
+  document.getElementById('formPhone').value = student.phone || '';
+  document.getElementById('formGpa').value = student.gpa || '';
+  document.getElementById('formStatus').value = student.status || 'ออนไลน์';
+
+  openModal('studentModal');
+};
+
+window.deleteStudent = async function (id) {
+  playSound('click');
+  const student = studentsList.find((s) => s.id === id);
+  if (!student) return;
+
+  if (confirm(`คุณต้องการลบข้อมูล "${student.full_name}" หรือไม่?`)) {
+    try {
+      const res = await fetch(`/api/users/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        studentsList = studentsList.filter((s) => s.id !== id);
+        filterAndRenderStudents();
+        playSound('success');
+        showToast('ลบข้อมูลสำเร็จ', `ลบ ${student.full_name} เรียบร้อยแล้ว`, 'success');
+      }
+    } catch (e) {
+      playSound('error');
+      showToast('เกิดข้อผิดพลาด', 'ไม่สามารถลบข้อมูลได้', 'error');
+    }
+  }
+};
+
+async function handleStudentFormSubmit() {
+  const payload = {
+    full_name: document.getElementById('formFullName').value,
+    student_id: document.getElementById('formStudentId').value,
+    level: document.getElementById('formLevel').value,
+    track: document.getElementById('formTrack').value,
+    email: document.getElementById('formEmail').value,
+    phone: document.getElementById('formPhone').value,
+    gpa: document.getElementById('formGpa').value,
+    status: document.getElementById('formStatus').value
+  };
+
+  try {
+    if (editingStudentId) {
+      const res = await fetch(`/api/users/${editingStudentId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const updated = await res.json();
+      const idx = studentsList.findIndex((s) => s.id === editingStudentId);
+      if (idx !== -1) studentsList[idx] = updated;
+      showToast('บันทึกสำเร็จ', `อัปเดตข้อมูล ${updated.full_name} แล้ว`, 'success');
+    } else {
+      const res = await fetch('/api/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const created = await res.json();
+      studentsList.unshift(created);
+      createConfetti();
+      showToast('เพิ่มสำเร็จ', `เพิ่มนักศึกษาใหม่ ${created.full_name} แล้ว`, 'success');
+    }
+
+    playSound('success');
+    closeModal('studentModal');
+    filterAndRenderStudents();
+  } catch (e) {
+    playSound('error');
+    showToast('เกิดข้อผิดพลาด', 'ไม่สามารถบันทึกข้อมูลได้', 'error');
+  }
+}
+
+function exportStudentsCSV() {
+  playSound('click');
+  if (!studentsList.length) return;
+
+  const headers = ['รหัสนักศึกษา', 'ชื่อ-นามสกุล', 'ระดับชั้น', 'สาขางาน', 'อีเมล', 'เบอร์โทร', 'เกรดเฉลี่ย', 'สถานะ'];
+  const rows = studentsList.map((s) => [
+    `"${s.student_id || ''}"`,
+    `"${s.full_name || ''}"`,
+    `"${s.level || ''}"`,
+    `"${s.track || ''}"`,
+    `"${s.email || ''}"`,
+    `"${s.phone || ''}"`,
+    `"${s.gpa || ''}"`,
+    `"${s.status || ''}"`
+  ]);
+
+  const csvContent = '\uFEFF' + [headers.join(','), ...rows.map((r) => r.join(','))].join('\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `it_nstvc_students_${Date.now()}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('ส่งออก CSV', 'ดาวน์โหลดไฟล์รายชื่อ CSV เรียบร้อยแล้ว', 'success');
+}
+
+function exportStudentsJSON() {
+  playSound('click');
+  if (!studentsList.length) return;
+
+  const jsonContent = JSON.stringify(studentsList, null, 2);
+  const blob = new Blob([jsonContent], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `it_nstvc_students_${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('ส่งออก JSON', 'ดาวน์โหลดไฟล์ JSON เรียบร้อยแล้ว', 'success');
+}
+
+/* ==========================================================================
+   10. INTERACTIVE GPA & GPAX CALCULATOR TOOL
+   ========================================================================== */
+const gradePoints = {
+  'A': 4.0,
+  'B+': 3.5,
+  'B': 3.0,
+  'C+': 2.5,
+  'C': 2.0,
+  'D+': 1.5,
+  'D': 1.0,
+  'F': 0.0
+};
+
+function initGpaCalculator() {
+  const addRowBtn = document.getElementById('addCourseRowBtn');
+  const calcBtn = document.getElementById('calculateGpaBtn');
+  const resetBtn = document.getElementById('resetGpaBtn');
+
+  if (addRowBtn) {
+    addRowBtn.addEventListener('click', () => {
+      playSound('pop');
+      addCalculatorRow();
+    });
+  }
+
+  if (calcBtn) {
+    calcBtn.addEventListener('click', () => calculateGPA());
+  }
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      playSound('click');
+      resetCalculator();
+    });
+  }
+}
+
+function addCalculatorRow(name = '', credits = 3, grade = 'A') {
+  const list = document.getElementById('calcCoursesList');
+  if (!list) return;
+
+  const row = document.createElement('div');
+  row.className = 'calc-course-row';
+  row.innerHTML = `
+    <input type="text" class="calc-input course-name-input" placeholder="ชื่อรายวิชา (เช่น Web Dev, Network)" value="${name}">
+    <select class="calc-input course-credit-select">
+      <option value="1" ${credits === 1 ? 'selected' : ''}>1 หน่วยกิต</option>
+      <option value="2" ${credits === 2 ? 'selected' : ''}>2 หน่วยกิต</option>
+      <option value="3" ${credits === 3 ? 'selected' : ''}>3 หน่วยกิต</option>
+      <option value="4" ${credits === 4 ? 'selected' : ''}>4 หน่วยกิต</option>
+    </select>
+    <select class="calc-input course-grade-select">
+      <option value="A" ${grade === 'A' ? 'selected' : ''}>A (4.0)</option>
+      <option value="B+" ${grade === 'B+' ? 'selected' : ''}>B+ (3.5)</option>
+      <option value="B" ${grade === 'B' ? 'selected' : ''}>B (3.0)</option>
+      <option value="C+" ${grade === 'C+' ? 'selected' : ''}>C+ (2.5)</option>
+      <option value="C" ${grade === 'C' ? 'selected' : ''}>C (2.0)</option>
+      <option value="D+" ${grade === 'D+' ? 'selected' : ''}>D+ (1.5)</option>
+      <option value="D" ${grade === 'D' ? 'selected' : ''}>D (1.0)</option>
+      <option value="F" ${grade === 'F' ? 'selected' : ''}>F (0.0)</option>
+    </select>
+    <button type="button" class="action-icon-btn delete" onclick="this.parentElement.remove(); playSound('click');">
+      <i class="fa-solid fa-trash"></i>
+    </button>
+  `;
+  list.appendChild(row);
+}
+
+function calculateGPA() {
+  const rows = document.querySelectorAll('.calc-course-row');
+  let totalCredits = 0;
+  let totalWeightedPoints = 0;
+
+  rows.forEach((row) => {
+    const credits = parseFloat(row.querySelector('.course-credit-select').value) || 0;
+    const grade = row.querySelector('.course-grade-select').value;
+    const point = gradePoints[grade] !== undefined ? gradePoints[grade] : 0;
+
+    totalCredits += credits;
+    totalWeightedPoints += credits * point;
+  });
+
+  const gpa = totalCredits > 0 ? totalWeightedPoints / totalCredits : 0;
+  const gpaFormatted = gpa.toFixed(2);
+
+  const gpaValueText = document.getElementById('gpaValueText');
+  const gpaGauge = document.getElementById('gpaGauge');
+  const honorsBadge = document.getElementById('honorsBadge');
+
+  if (gpaValueText) gpaValueText.textContent = gpaFormatted;
+
+  if (gpaGauge) {
+    const deg = (gpa / 4.0) * 360;
+    gpaGauge.style.background = `conic-gradient(var(--primary) 0deg, var(--secondary) ${deg}deg, var(--border) ${deg}deg 360deg)`;
+  }
+
+  if (honorsBadge) {
+    if (gpa >= 3.6) {
+      honorsBadge.textContent = '🌟 เกียรตินิยมอันดับ 1 (First Class Honors)';
+      honorsBadge.style.color = '#fbbf24';
+      createConfetti();
+      playSound('success');
+    } else if (gpa >= 3.25) {
+      honorsBadge.textContent = '✨ เกียรตินิยมอันดับ 2 (Second Class Honors)';
+      honorsBadge.style.color = '#38bdf8';
+      playSound('success');
+    } else if (gpa >= 2.0) {
+      honorsBadge.textContent = '👍 ผ่านเกณฑ์การสำเร็จการศึกษา';
+      honorsBadge.style.color = '#34d399';
+      playSound('pop');
+    } else {
+      honorsBadge.textContent = '⚠️ ต้องลงทะเบียนปรับปรุงผลการเรียน';
+      honorsBadge.style.color = '#ef4444';
+      playSound('error');
+    }
+  }
+
+  showToast('คำนวณสำเร็จ', `เกรดเฉลี่ยสะสมคำนวณได้: ${gpaFormatted}`, 'info');
+}
+
+function resetCalculator() {
+  const list = document.getElementById('calcCoursesList');
+  if (!list) return;
+  list.innerHTML = '';
+  addCalculatorRow('Full-Stack Web Dev', 3, 'A');
+  addCalculatorRow('Computer Network & Security', 3, 'A');
+  addCalculatorRow('Database Architecture', 3, 'B+');
+  addCalculatorRow('AI & IoT Studio', 3, 'A');
+  calculateGPA();
+}
+
+/* ==========================================================================
+   11. EVENTS SECTION & TIMELINE
+   ========================================================================== */
+async function initEventsSection() {
+  const container = document.getElementById('eventsTimeline');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/events');
+    const events = await res.json();
+
+    container.innerHTML = events
+      .map(
+        (e) => `
+      <div class="glass-panel event-card tilt-card">
+        <div class="event-date-box">
+          <span class="event-date">${e.date}</span>
+          <span class="event-type">${e.type}</span>
+        </div>
+        <div class="event-info">
+          <h4 class="event-title">${e.title}</h4>
+          <div class="event-location"><i class="fa-solid fa-location-dot"></i> ${e.location}</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="saveEventReminder('${e.title}')">
+          <i class="fa-regular fa-bell"></i> บันทึกเตือน
+        </button>
+      </div>
+    `
+      )
+      .join('');
+
+    apply3DTilt();
+  } catch (err) {
+    console.error('Error fetching events:', err);
+  }
+}
+
+window.saveEventReminder = function (title) {
+  playSound('success');
+  showToast('บันทึกการแจ้งเตือน', `ระบบตั้งเตือนกิจกรรม "${title}" เรียบร้อยแล้ว`, 'success');
+};
+
+/* ==========================================================================
+   12. CONTACT & ADMISSION FORM
+   ========================================================================== */
+function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    playSound('pop');
+
+    const payload = {
+      name: document.getElementById('contactName').value,
+      email: document.getElementById('contactEmail').value,
+      phone: document.getElementById('contactPhone').value,
+      topic: document.getElementById('contactTopic').value,
+      message: document.getElementById('contactMessage').value
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      playSound('success');
+      createConfetti();
+      showToast('ส่งข้อความสำเร็จ!', data.message, 'success');
+      form.reset();
+    } catch (err) {
+      playSound('error');
+      showToast('ส่งข้อมูลไม่สำเร็จ', 'กรุณาลองใหม่อีกครั้ง', 'error');
+    }
+  });
+}
+
+/* ==========================================================================
+   13. AI CHATBOT WIDGET ("น้อง IT-Bot")
+   ========================================================================== */
+function initChatbot() {
+  const trigger = document.getElementById('chatbotTrigger');
+  const windowEl = document.getElementById('chatbotWindow');
+  const closeBtn = document.getElementById('chatbotCloseBtn');
+  const sendBtn = document.getElementById('chatbotSendBtn');
+  const inputEl = document.getElementById('chatbotInput');
+
+  if (trigger && windowEl) {
+    trigger.addEventListener('click', () => {
+      playSound('pop');
+      windowEl.classList.toggle('open');
+      if (windowEl.classList.contains('open') && inputEl) {
+        inputEl.focus();
+      }
+    });
+  }
+
+  if (closeBtn && windowEl) {
+    closeBtn.addEventListener('click', () => {
+      playSound('click');
+      windowEl.classList.remove('open');
+    });
+  }
+
+  if (sendBtn && inputEl) {
+    sendBtn.addEventListener('click', () => handleSendChat());
+    inputEl.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleSendChat();
+    });
+  }
+
+  // Quick chips
+  document.querySelectorAll('.suggestion-chip').forEach((chip) => {
+    chip.addEventListener('click', function () {
+      const text = this.textContent;
+      if (inputEl) inputEl.value = text;
+      handleSendChat();
+    });
+  });
+}
+
+async function handleSendChat() {
+  const inputEl = document.getElementById('chatbotInput');
+  const messagesContainer = document.getElementById('chatbotMessages');
+  if (!inputEl || !messagesContainer) return;
+
+  const text = inputEl.value.trim();
+  if (!text) return;
+
+  // Add user bubble
+  playSound('click');
+  appendChatBubble('user', text);
+  inputEl.value = '';
+
+  // Add loading bubble
+  const loadingBubble = appendChatBubble('bot', 'กำลังค้นหาคำตอบ...');
+
+  try {
+    const res = await fetch('/api/chatbot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    const data = await res.json();
+    loadingBubble.remove();
+    appendChatBubble('bot', data.reply);
+    playSound('pop');
+
+    // Update suggestions if provided
+    if (data.suggestions && data.suggestions.length) {
+      updateChatSuggestions(data.suggestions);
+    }
+  } catch (e) {
+    loadingBubble.remove();
+    appendChatBubble('bot', 'ขออภัยครับ เกิดข้อผิดพลาดในการเชื่อมต่อเซิร์ฟเวอร์');
+    playSound('error');
+  }
+}
+
+function appendChatBubble(sender, text) {
+  const messagesContainer = document.getElementById('chatbotMessages');
+  if (!messagesContainer) return null;
+
+  const bubble = document.createElement('div');
+  bubble.className = `chat-bubble ${sender}`;
+  bubble.textContent = text;
+  messagesContainer.appendChild(bubble);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  return bubble;
+}
+
+function updateChatSuggestions(suggestions) {
+  const container = document.getElementById('chatbotSuggestions');
+  if (!container) return;
+
+  container.innerHTML = suggestions
+    .map((s) => `<button type="button" class="suggestion-chip">${s}</button>`)
+    .join('');
+
+  container.querySelectorAll('.suggestion-chip').forEach((chip) => {
+    chip.addEventListener('click', function () {
+      const inputEl = document.getElementById('chatbotInput');
+      if (inputEl) inputEl.value = this.textContent;
+      handleSendChat();
+    });
+  });
+}
+
+/* ==========================================================================
+   14. 3D CARD HOVER TILT CONTROLLER
+   ========================================================================== */
+function apply3DTilt() {
+  const cards = document.querySelectorAll('.tilt-card');
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -7;
+      const rotateY = ((x - centerX) / centerX) * 7;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+    });
+  });
+}
+
+/* ==========================================================================
+   15. MODAL SYSTEM
+   ========================================================================== */
+window.openModal = function (modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) modal.classList.add('active');
+};
+
+window.closeModal = function (modalId) {
+  playSound('click');
+  const modal = document.getElementById(modalId);
+  if (modal) modal.classList.remove('active');
+};
+
+// Close when clicking outside
+document.querySelectorAll('.modal-overlay').forEach((overlay) => {
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
+});
+
+/* ==========================================================================
+   16. TOAST NOTIFICATION SYSTEM
+   ========================================================================== */
+window.showToast = function (title, message, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+
+  let icon = 'fa-solid fa-circle-info';
+  if (type === 'success') icon = 'fa-solid fa-circle-check';
+  if (type === 'error') icon = 'fa-solid fa-triangle-exclamation';
+
+  toast.innerHTML = `
+    <i class="${icon} toast-icon"></i>
+    <div class="toast-content">
+      <div class="toast-title">${title}</div>
+      <div class="toast-message">${message}</div>
+    </div>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(() => toast.classList.add('show'), 50);
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 4200);
+};
+
+/* ==========================================================================
+   17. CANVAS CONFETTI FX
+   ========================================================================== */
+function createConfetti() {
+  const count = 75;
+  const colors = ['#00f0ff', '#8b5cf6', '#ec4899', '#10b981', '#fbbf24'];
+
+  for (let i = 0; i < count; i++) {
+    const piece = document.createElement('div');
+    piece.style.position = 'fixed';
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.top = '-20px';
+    piece.style.width = Math.random() * 10 + 6 + 'px';
+    piece.style.height = Math.random() * 10 + 6 + 'px';
+    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    piece.style.zIndex = '9999';
+    piece.style.pointerEvents = 'none';
+    piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+    piece.style.transition = `transform ${Math.random() * 2 + 1.5}s ease-out, top ${Math.random() * 2 + 1.5}s ease-out, opacity ${Math.random() * 2 + 1.5}s ease-out`;
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => {
+      piece.style.top = Math.random() * 80 + 20 + 'vh';
+      piece.style.transform = `rotate(${Math.random() * 720}deg) scale(${Math.random() * 0.5 + 0.5})`;
+      piece.style.opacity = '0';
+    }, 20);
+
+    setTimeout(() => piece.remove(), 3500);
+  }
+}
+
+  </script>
+
+  <!-- External Script fallback -->
   <script src="js/app.js"></script>
 </body>
 </html>

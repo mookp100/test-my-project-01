@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>สาขาวิชาเทคโนโลยีสารสนเทศ | วิทยาลัยอาชีวศึกษานครศรีธรรมราช (IT NSTVC)</title>
+  <meta name="description" content="เว็บไซต์สาขาวิชาเทคโนโลยีสารสนเทศ วิทยาลัยอาชีวศึกษานครศรีธรรมราช เรียนรู้การพัฒนาซอฟต์แวร์ เครือข่าย AI คลาวด์ และเทคโนโลยีดิจิทัลสมัยใหม่ พร้อมห้องปฏิบัติการมาตรฐานสากล" />
+  <meta name="keywords" content="เทคโนโลยีสารสนเทศ, อาชีวนครศรีธรรมราช, IT NSTVC, ปวช, ปวส, เรียนไอที, สาขาไอที, ซอฟต์แวร์, เครือข่ายคอมพิวเตอร์, AI" />
+  <meta name="author" content="แผนกวิชาเทคโนโลยีสารสนเทศ วอศ.นครศรีธรรมราช" />
+
+  <!-- FontAwesome 6 CDN for rich tech icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Top Scroll Progress Bar -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
+  <!-- Interactive Background Canvas Particles -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ==================== 1. TOP NAVBAR ==================== -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <a href="#" class="brand" title="IT NSTVC Homepage">
+        <div class="brand-icon">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">IT NSTVC</span>
+          <span class="brand-subtitle">สาขาวิชาเทคโนโลยีสารสนเทศ</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero" class="nav-link active">หน้าแรก</a></li>
+        <li><a href="#curriculum" class="nav-link">หลักสูตร</a></li>
+        <li><a href="#teachers" class="nav-link">คณาจารย์</a></li>
+        <li><a href="#students" class="nav-link">ระบบนักศึกษา</a></li>
+        <li><a href="#facilities" class="nav-link">ห้องปฏิบัติการ</a></li>
+        <li><a href="#calculator" class="nav-link">คำนวณ GPA</a></li>
+        <li><a href="#events" class="nav-link">กิจกรรม & ผลงาน</a></li>
+        <li><a href="#contact" class="nav-link">ติดต่อสอบถาม</a></li>
+      </ul>
+
+      <!-- Action Controls -->
+      <div class="nav-actions">
+        <!-- Sound Effect Toggle -->
+        <button id="soundToggleBtn" class="sound-toggle-btn" title="เปิด/ปิดเสียงเอฟเฟกต์ (Sound FX)" aria-label="Toggle Sound Effects">
+          <i class="fa-solid fa-volume-high"></i>
+        </button>
+
+        <!-- Theme Switcher -->
+        <button id="themeToggleBtn" class="theme-dropdown-btn" title="เปลี่ยนธีม (Cyber Dark / Clean Light / Aurora)" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- CTA Button -->
+        <a href="#students" class="btn btn-primary btn-sm" style="display: inline-flex;">
+          <i class="fa-solid fa-users-gear"></i> จัดการข้อมูล
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- ==================== 2. HERO SECTION ==================== -->
+  <section id="hero" class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i> แผนกวิชาเทคโนโลยีสารสนเทศ • วอศ.นครศรีธรรมราช
+          </div>
+
+          <h1 class="hero-title">
+            ก้าวสู่อนาคตดิจิทัล <br />
+            สร้างสรรค์นวัตกรรม <br />
+            <span class="gradient-text">ด้วยทักษะสารสนเทศ</span>
+          </h1>
+
+          <p class="hero-desc">
+            หลักสูตรวิชาชีพยุคใหม่ที่มุ่งเน้นการปฏิบัติจริง ทั้งด้านการพัฒนา Full-Stack ซอฟต์แวร์, โครงข่ายและความปลอดภัยไซเบอร์, Cloud Architecture และปัญญาประดิษฐ์ (AI & IoT) พร้อมห้องปฏิบัติการมาตรฐานอุตสาหกรรม
+          </p>
+
+          <div class="hero-cta">
+            <a href="#curriculum" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-book-open-reader"></i> สำรวจหลักสูตร ปวช./ปวส.
+            </a>
+            <a href="#students" class="btn btn-secondary btn-lg">
+              <i class="fa-solid fa-id-card-clip"></i> ระบบข้อมูลนักศึกษา
+            </a>
+          </div>
+
+          <!-- Hero Live Stat Counters -->
+          <div class="hero-live-stats">
+            <div class="live-stat-item">
+              <span class="live-stat-number gradient-text">100%</span>
+              <span class="live-stat-label">อัตรามีงานทำ & ศึกษาต่อ</span>
+            </div>
+            <div class="live-stat-item">
+              <span class="live-stat-number">450+</span>
+              <span class="live-stat-label">นักศึกษาปัจจุบัน</span>
+            </div>
+            <div class="live-stat-item">
+              <span class="live-stat-number gradient-text-alt">28+</span>
+              <span class="live-stat-label">รางวัลนวัตกรรมระดับชาติ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Futuristic Terminal Window -->
+        <div class="hero-visual">
+          <!-- Floating Interactive Badges -->
+          <div class="floating-chip chip-1 tilt-card">
+            <div class="chip-icon blue">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <div>
+              <small style="color: var(--text-muted); display: block; font-size: 0.72rem;">Server Uptime</small>
+              <strong style="font-size: 0.88rem; color: #34d399;">99.98% Online</strong>
+            </div>
+          </div>
+
+          <div class="floating-chip chip-2 tilt-card">
+            <div class="chip-icon green">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <small style="color: var(--text-muted); display: block; font-size: 0.72rem;">Lab Security</small>
+              <strong style="font-size: 0.88rem; color: var(--primary);">Cisco Certified</strong>
+            </div>
+          </div>
+
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+              </div>
+              <span class="terminal-title">bash - it-nstvc@root:~</span>
+              <i class="fa-solid fa-terminal" style="font-size: 0.8rem; color: var(--text-muted);"></i>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-code-line">
+                <span class="terminal-prompt">nstvc-it@system:~$</span> <span class="terminal-cmd">init-curriculum --track fullstack-ai</span>
+              </div>
+              <div class="terminal-output">
+                ✔ Loading IT Department NSTVC Core Modules...<br />
+                ✔ Connecting Cisco Networking & Cyber Defense Lab...<br />
+                ✔ Initializing AI & IoT Cloud Innovation Studio...<br />
+                🚀 Status: Ready to develop future engineers!
+              </div>
+              <div class="terminal-code-line">
+                <span class="terminal-prompt">nstvc-it@system:~$</span> <span class="terminal-cmd">npm start app.js</span>
+              </div>
+              <div class="terminal-output" style="color: #67e8f9;">
+                [SUCCESS] Web application server listening on port 3000.<br />
+                [API] /api/teachers, /api/students, /api/chatbot loaded.<br />
+                [AI-BOT] "น้อง IT-Bot" is online and ready to assist!
+              </div>
+              <div class="terminal-code-line">
+                <span class="terminal-prompt">nstvc-it@system:~$</span> <span class="terminal-cursor"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. STATS OVERVIEW SECTION ==================== -->
+  <section id="statsSection" class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        
+        <div class="glass-panel stat-card tilt-card">
+          <div class="stat-icon">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value count-up" data-target="450" data-suffix="+">0</span>
+            <span class="stat-name">นักศึกษาในแผนกวิชา</span>
+          </div>
+        </div>
+
+        <div class="glass-panel stat-card tilt-card">
+          <div class="stat-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value count-up" data-target="100" data-suffix="%">0</span>
+            <span class="stat-name">อัตราการได้งานทำตรงสาขา</span>
+          </div>
+        </div>
+
+        <div class="glass-panel stat-card tilt-card">
+          <div class="stat-icon">
+            <i class="fa-solid fa-trophy"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value count-up" data-target="28" data-suffix="+">0</span>
+            <span class="stat-name">รางวัลเหรียญทองระดับชาติ</span>
+          </div>
+        </div>
+
+        <div class="glass-panel stat-card tilt-card">
+          <div class="stat-icon">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div class="stat-info">
+            <span class="stat-value count-up" data-target="4" data-suffix=" ห้อง">0</span>
+            <span class="stat-name">ห้องปฏิบัติการเฉพาะทาง</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. CURRICULUM EXPLORER ==================== -->
+  <section id="curriculum" class="curriculum-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">// CURRICULUM STRUCTURE</span>
+        <h2 class="section-title">โครงสร้างหลักสูตรการเรียนการสอน</h2>
+        <p class="section-desc">ออกแบบหลักสูตรร่วมกับสถานประกอบการชั้นนำ เน้นสร้างทักษะที่ตลาดแรงงานไอทีต้องการจริง</p>
+      </div>
+
+      <!-- Curriculum Tabs -->
+      <div class="curriculum-tabs">
+        <button class="curriculum-tab-btn tab-btn active" data-level="pvs">
+          <i class="fa-solid fa-graduation-cap"></i> ระดับ ปวส. (ประกาศนียบัตรวิชาชีพชั้นสูง)
+        </button>
+        <button class="curriculum-tab-btn tab-btn" data-level="pvc">
+          <i class="fa-solid fa-school"></i> ระดับ ปวช. (ประกาศนียบัตรวิชาชีพ)
+        </button>
+      </div>
+
+      <!-- Course Cards Grid -->
+      <div id="coursesGrid" class="courses-grid">
+        <!-- Loaded dynamically via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. TEACHERS & FACULTY ==================== -->
+  <section id="teachers" class="teachers-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">// FACULTY & MENTORS</span>
+        <h2 class="section-title">คณาจารย์ประจำแผนกวิชา</h2>
+        <p class="section-desc">ทีมคณาจารย์ผู้เชี่ยวชาญพร้อมถ่ายทอดความรู้และให้คำปรึกษาตลอดหลักสูตร</p>
+      </div>
+
+      <!-- Teachers Grid -->
+      <div id="teachersGrid" class="teachers-grid">
+        <!-- Loaded dynamically via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. STUDENT & PERSONNEL MANAGEMENT HUB ==================== -->
+  <section id="students" class="students-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">// STUDENT & PERSONNEL HUB</span>
+        <h2 class="section-title">ระบบจัดการข้อมูลนักศึกษาและบุคลากร</h2>
+        <p class="section-desc">ระบบศูนย์กลางข้อมูลสารสนเทศ ค้นหา กรองสถานะ เพิ่ม แก้ไข ส่งออกข้อมูล และพิมพ์ใบรายชื่อแบบเรียลไทม์</p>
+      </div>
+
+      <!-- Hub Controls -->
+      <div class="glass-panel hub-controls">
+        
+        <!-- Live Search -->
+        <div class="hub-search-box">
+          <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+          <input type="text" id="studentSearchInput" class="hub-search-input" placeholder="ค้นหาตามชื่อ, รหัสนักศึกษา, อีเมล หรือสาขางาน..." />
+        </div>
+
+        <!-- Level Filter -->
+        <select id="studentLevelFilter" class="hub-filter-select">
+          <option value="all">ทุกระดับชั้น (All Levels)</option>
+          <option value="ปวส.2">ปวส. ชั้นปีที่ 2</option>
+          <option value="ปวส.1">ปวส. ชั้นปีที่ 1</option>
+          <option value="ปวช.3">ปวช. ชั้นปีที่ 3</option>
+          <option value="ปวช.2">ปวช. ชั้นปีที่ 2</option>
+          <option value="ปวช.1">ปวช. ชั้นปีที่ 1</option>
+        </select>
+
+        <!-- Action Buttons -->
+        <div class="hub-btn-group">
+          <button id="addStudentBtn" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-user-plus"></i> เพิ่มสมาชิกใหม่
+          </button>
+          <button id="exportCsvBtn" class="btn btn-secondary btn-sm" title="ส่งออกข้อมูลเป็น CSV">
+            <i class="fa-solid fa-file-csv"></i> CSV
+          </button>
+          <button id="exportJsonBtn" class="btn btn-secondary btn-sm" title="ส่งออกข้อมูลเป็น JSON">
+            <i class="fa-solid fa-file-code"></i> JSON
+          </button>
+          <button id="printListBtn" class="btn btn-secondary btn-sm" title="พิมพ์ใบรายชื่อนักศึกษา">
+            <i class="fa-solid fa-print"></i> พิมพ์
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Responsive Table View -->
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>รหัสนักศึกษา</th>
+              <th>ชื่อ-นามสกุล / อีเมล</th>
+              <th>ระดับชั้น</th>
+              <th>สาขางาน / ความเชี่ยวชาญ</th>
+              <th>เกรดเฉลี่ย</th>
+              <th>สถานะปัจจุบัน</th>
+              <th style="text-align: right;">จัดการ</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody">
+            <!-- Loaded dynamically via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. SMART FACILITIES & LABS ==================== -->
+  <section id="facilities" class="facilities-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">// SMART FACILITIES & LABS</span>
+        <h2 class="section-title">ห้องปฏิบัติการและสิ่งอำนวยความสะดวก</h2>
+        <p class="section-desc">เพียบพร้อมด้วยเครื่องคอมพิวเตอร์สเปกสูง เซิร์ฟเวอร์ และอุปกรณ์เครือข่ายระดับสากล</p>
+      </div>
+
+      <!-- Facilities Grid -->
+      <div id="facilitiesGrid" class="facilities-grid">
+        <!-- Loaded dynamically via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. INTERACTIVE GPA & GPAX CALCULATOR ==================== -->
+  <section id="calculator" class="calculator-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">// INTERACTIVE UTILITY TOOL</span>
+        <h2 class="section-title">เครื่องมือจำลองคำนวณเกรดเฉลี่ย (GPA Calculator)</h2>
+        <p class="section-desc">ทดลองคำนวณผลการเรียนสะสม วางแผนเป้าหมายเกียรตินิยม พร้อมระบบตรวจวัดคะแนนแบบเรียลไทม์</p>
+      </div>
+
+      <div class="glass-panel calc-container">
+        
+        <!-- Course list input area -->
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <h3 style="font-size: 1.25rem;"><i class="fa-solid fa-list-check"></i> รายการวิชาที่คำนวณ</h3>
+            <button type="button" id="addCourseRowBtn" class="btn btn-outline-primary btn-sm">
+              <i class="fa-solid fa-plus"></i> เพิ่มรายวิชา
+            </button>
+          </div>
+
+          <div id="calcCoursesList" class="calc-courses-list">
+            <!-- Initial default rows loaded by JS reset -->
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button type="button" id="calculateGpaBtn" class="btn btn-primary" style="flex: 1;">
+              <i class="fa-solid fa-calculator"></i> ประมวลผลเกรดเฉลี่ย
+            </button>
+            <button type="button" id="resetGpaBtn" class="btn btn-secondary">
+              <i class="fa-solid fa-rotate-left"></i> รีเซ็ตตัวอย่าง
+            </button>
+          </div>
+        </div>
+
+        <!-- Result Gauge Area -->
+        <div class="calc-result-box">
+          <div id="gpaGauge" class="gpa-gauge">
+            <div class="gpa-gauge-inner">
+              <span id="gpaValueText" class="gpa-value-text">4.00</span>
+              <span class="gpa-label-text">GPAX สะสม</span>
+            </div>
+          </div>
+
+          <h4 style="font-size: 1.15rem; margin-bottom: 6px;">ผลการประเมินวิชาการ</h4>
+          <p id="honorsBadge" class="honors-badge">🌟 เกียรตินิยมอันดับ 1 (First Class Honors)</p>
+          <small style="color: var(--text-muted); margin-top: 10px; display: block;">
+            เกณฑ์: เกรด 3.60 ขึ้นไปได้รับเกียรตินิยมอันดับ 1
+          </small>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 9. EVENTS & TIMELINE ==================== -->
+  <section id="events" class="events-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">// EVENTS & ACHIEVEMENTS</span>
+        <h2 class="section-title">ปฏิทินกิจกรรมและผลงานดีเด่น</h2>
+        <p class="section-desc">การแข่งขันวิชาชีพ การอบรมระดับชาติ และกิจกรรมทางเทคโนโลยีของแผนกวิชา</p>
+      </div>
+
+      <!-- Events List -->
+      <div id="eventsTimeline" class="events-timeline">
+        <!-- Loaded dynamically via JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 10. CONTACT & ADMISSION ==================== -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">// GET IN TOUCH</span>
+        <h2 class="section-title">ติดต่อสอบถามและสมัครเรียน</h2>
+        <p class="section-desc">สนใจเข้าศึกษาต่อหรือติดต่อประสานงาน ส่งข้อความถึงฝ่ายวิชาการของแผนกได้ทันที</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Info Panel -->
+        <div class="glass-panel contact-info-panel">
+          <div>
+            <h3 style="font-size: 1.4rem; margin-bottom: 12px;">แผนกวิชาเทคโนโลยีสารสนเทศ</h3>
+            <p style="color: var(--text-muted); line-height: 1.7;">
+              วิทยาลัยอาชีวศึกษานครศรีธรรมราช สำนักงานคณะกรรมการการอาชีวศึกษา (สอศ.) กระทรวงศึกษาธิการ
+            </p>
+          </div>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <strong>ที่ตั้งแผนกวิชา</strong>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">อาคารปฏิบัติการ 4 ชั้น 2-3 วิทยาลัยอาชีวศึกษานครศรีธรรมราช ต.คลัง อ.เมือง จ.นครศรีธรรมราช 80000</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <strong>โทรศัพท์ติดต่อ</strong>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">075-341-234 ต่อ 301 (ห้องพักครูแผนก IT)</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <strong>อีเมลสารสนเทศ</strong>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">it@nstvc.ac.th, contact.it.nstvc@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <strong>วันและเวลาทำการ</strong>
+                <p style="color: var(--text-muted); font-size: 0.88rem;">วันจันทร์ - ศุกร์ : 08.00 น. - 17.00 น.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="badge badge-success"><i class="fa-solid fa-shield-check"></i> รับรองมาตรฐานโดย สอศ.</span>
+          </div>
+        </div>
+
+        <!-- Form Panel -->
+        <div class="glass-panel contact-form-panel">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="contactName" class="form-label">ชื่อ-นามสกุล / ชื่อผู้ติดต่อ *</label>
+              <input type="text" id="contactName" class="form-input" placeholder="เช่น นายธีรภัทร ยอดเยี่ยม" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">อีเมลติดต่อ *</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="name@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="contactPhone" class="form-label">เบอร์โทรศัพท์</label>
+                <input type="tel" id="contactPhone" class="form-input" placeholder="08x-xxx-xxxx" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactTopic" class="form-label">หัวข้อที่ต้องการสอบถาม</label>
+              <select id="contactTopic" class="form-select">
+                <option value="สมัครเรียน ปวช./ปวส.">สอบถามการสมัครเรียนต่อ ระดับ ปวช. / ปวส.</option>
+                <option value="เทียบโอนหน่วยกิต">สอบถามการเทียบโอนผลการเรียน / โควตา</option>
+                <option value="ความร่วมมือทวิภาคี">ติดต่อความร่วมมือทวิภาคี / ฝึกงานสถานประกอบการ</option>
+                <option value="ขอใช้ห้องปฏิบัติการ">ติดต่อขอใช้ห้องปฏิบัติการและบริการวิชาการ</option>
+                <option value="อื่นๆ">อื่นๆ</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">ข้อความรายละเอียด *</label>
+              <textarea id="contactMessage" class="form-textarea" placeholder="พิมพ์ข้อความที่คุณต้องการสอบถาม..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+              <i class="fa-solid fa-paper-plane"></i> ส่งข้อความออนไลน์
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 11. FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom: 12px;">
+            <div class="brand-icon">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="brand-info">
+              <span class="brand-title">IT NSTVC</span>
+              <span class="brand-subtitle">สาขาวิชาเทคโนโลยีสารสนเทศ</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            มุ่งมั่นผลิตและพัฒนากำลังคนอาชีวศึกษาด้านเทคโนโลยีสารสนเทศให้มีความเป็นเลิศทางวิชาชีพ เปี่ยมด้วยคุณธรรม จริยธรรม และก้าวทันเทคโนโลยีดิจิทัลสากล
+          </p>
+          <div style="display: flex; gap: 12px; font-size: 1.2rem;">
+            <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-github"></i></a>
+            <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" style="color: var(--text-muted);"><i class="fa-brands fa-line"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">เมนูด่วน</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">หน้าแรก</a></li>
+            <li><a href="#curriculum" class="footer-link">โครงสร้างหลักสูตร</a></li>
+            <li><a href="#teachers" class="footer-link">ทำเนียบคณาจารย์</a></li>
+            <li><a href="#facilities" class="footer-link">ห้องปฏิบัติการเฉพาะทาง</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">ระบบบริการ</h4>
+          <ul class="footer-links">
+            <li><a href="#students" class="footer-link">ระบบสารสนเทศนักศึกษา</a></li>
+            <li><a href="#calculator" class="footer-link">คำนวณเกรด GPA/GPAX</a></li>
+            <li><a href="#events" class="footer-link">ปฏิทินกิจกรรมวิชาการ</a></li>
+            <li><a href="#contact" class="footer-link">แจ้งเรื่อง / สมัครเรียน</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">การรับรองมาตรฐาน</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px;">
+            หลักสูตรประกาศนียบัตรวิชาชีพและวิชาชีพชั้นสูง ได้รับการรับรองตามมาตรฐานคุณวุฒิอาชีวศึกษาแห่งชาติ
+          </p>
+          <span class="badge badge-primary"><i class="fa-solid fa-check"></i> มาตรฐาน สอศ. 100%</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 สาขาวิชาเทคโนโลยีสารสนเทศ วิทยาลัยอาชีวศึกษานครศรีธรรมราช. สงวนลิขสิทธิ์ทุกประการ.</span>
+        <div style="display: flex; gap: 18px;">
+          <a href="#" class="footer-link">นโยบายความเป็นส่วนตัว</a>
+          <a href="#" class="footer-link">ข้อกำหนดการใช้งาน</a>
+          <a href="#hero" class="footer-link"><i class="fa-solid fa-arrow-up"></i> กลับขึ้นด้านบน</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== 12. FLOATING AI CHATBOT WIDGET ("น้อง IT-Bot") ==================== -->
+  <button id="chatbotTrigger" class="chatbot-trigger" title="แชทบอทสอบถามข้อมูลสาขา (น้อง IT-Bot)" aria-label="Open IT-Bot Chat">
+    <i class="fa-solid fa-robot"></i>
+    <span class="chatbot-badge">1</span>
+  </button>
+
+  <div id="chatbotWindow" class="chatbot-window">
+    <div class="chatbot-header">
+      <div class="chatbot-bot-info">
+        <div class="chatbot-avatar">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div>
+          <div class="chatbot-title">น้อง IT-Bot ผู้ช่วยอัจฉริยะ</div>
+          <div class="chatbot-status"><i class="fa-solid fa-circle" style="font-size: 0.5rem;"></i> ออนไลน์พร้อมตอบคำถาม</div>
+        </div>
+      </div>
+      <button id="chatbotCloseBtn" class="modal-close-btn" aria-label="Close Chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div id="chatbotMessages" class="chatbot-messages">
+      <div class="chat-bubble bot">
+        สวัสดีครับ! ผมคือน้อง **IT-Bot** ผู้ช่วยประจำแผนกวิชาเทคโนโลยีสารสนเทศ ยินดีให้บริการครับ! ✨<br />
+        คุณสามารถสอบถามเกี่ยวกับหลักสูตร ปวช./ปวส., การรับสมัคร, ค่าเทอม, ห้องปฏิบัติการ หรือคณาจารย์ได้เลยครับ
+      </div>
+    </div>
+
+    <!-- Quick Question Suggestions -->
+    <div id="chatbotSuggestions" class="chatbot-suggestions">
+      <button type="button" class="suggestion-chip">สมัครเรียนอย่างไร?</button>
+      <button type="button" class="suggestion-chip">หลักสูตรมีอะไรบ้าง?</button>
+      <button type="button" class="suggestion-chip">ค่าเทอมเท่าไหร่?</button>
+      <button type="button" class="suggestion-chip">ห้องแล็บมีอะไรบ้าง?</button>
+    </div>
+
+    <div class="chatbot-input-area">
+      <input type="text" id="chatbotInput" class="chatbot-input" placeholder="พิมพ์คำถามของคุณที่นี่..." />
+      <button id="chatbotSendBtn" class="btn btn-primary btn-sm btn-icon" title="ส่งข้อความ">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== 13. MODALS ==================== -->
+  
+  <!-- Add/Edit Student Modal -->
+  <div id="studentModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="studentModalTitle" class="modal-title">เพิ่มข้อมูลนักศึกษา / สมาชิกใหม่</h3>
+        <button class="modal-close-btn" onclick="closeModal('studentModal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="studentForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="formFullName" class="form-label">ชื่อ - นามสกุล *</label>
+            <input type="text" id="formFullName" class="form-input" placeholder="เช่น นายวรภัทร เกียรติสกุล" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="formStudentId" class="form-label">รหัสนักศึกษา</label>
+              <input type="text" id="formStudentId" class="form-input" placeholder="เช่น 6620901009" />
+            </div>
+            <div class="form-group">
+              <label for="formLevel" class="form-label">ระดับชั้น</label>
+              <select id="formLevel" class="form-select">
+                <option value="ปวส.2">ปวส. ชั้นปีที่ 2</option>
+                <option value="ปวส.1">ปวส. ชั้นปีที่ 1</option>
+                <option value="ปวช.3">ปวช. ชั้นปีที่ 3</option>
+                <option value="ปวช.2">ปวช. ชั้นปีที่ 2</option>
+                <option value="ปวช.1">ปวช. ชั้นปีที่ 1</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="formTrack" class="form-label">สาขางาน / ความเชี่ยวชาญ</label>
+            <input type="text" id="formTrack" class="form-input" placeholder="เช่น ซอฟต์แวร์, โครงข่าย, AI & IoT, UI/UX" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="formEmail" class="form-label">อีเมล *</label>
+              <input type="email" id="formEmail" class="form-input" placeholder="student@nstvc.ac.th" required />
+            </div>
+            <div class="form-group">
+              <label for="formPhone" class="form-label">เบอร์โทรศัพท์</label>
+              <input type="tel" id="formPhone" class="form-input" placeholder="08x-xxx-xxxx" />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label for="formGpa" class="form-label">เกรดเฉลี่ย (GPA)</label>
+              <input type="number" step="0.01" min="0" max="4.00" id="formGpa" class="form-input" placeholder="3.75" />
+            </div>
+            <div class="form-group">
+              <label for="formStatus" class="form-label">สถานะปัจจุบัน</label>
+              <select id="formStatus" class="form-select">
+                <option value="ออนไลน์">ออนไลน์</option>
+                <option value="ติดเรียน Lab">ติดเรียน Lab</option>
+                <option value="ว่าง">ว่าง</option>
+                <option value="พักเบรก">พักเบรก</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('studentModal')">ยกเลิก</button>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> บันทึกข้อมูล</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- General Info Modal (for Teachers & Facilities) -->
+  <div id="generalModal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="generalModalTitle" class="modal-title">รายละเอียดข้อมูล</h3>
+        <button class="modal-close-btn" onclick="closeModal('generalModal')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="generalModalBody" class="modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="closeModal('generalModal')">ปิดหน้าต่าง</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 14. TOAST CONTAINER ==================== -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Main JavaScript App Engine -->
+  <script src="js/app.js"></script>
+</body>
+</html>

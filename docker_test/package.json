@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "node --test",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "node app.js"
   },
   "dependencies": {
     "mysql2": "^3.6.0"

@@ -9,6 +9,35 @@ const DB_NAME = process.env.DB_NAME || 'my_database';
 const DB_USER = process.env.DB_USER || 'root';
 const DB_PASSWORD = process.env.DB_PASSWORD || 'Secret123';
 
+function getFallbackTeachers() {
+    return [
+        {
+            full_name: 'นางสาวสมใจ ใจดี',
+            position: 'ครูแผนกเทคโนโลยีสารสนเทศ',
+            expertise: 'Web Development, Database, JavaScript',
+            email: 'somjai@school.ac.th',
+            phone: '081-234-5678',
+            photo_url: '',
+        },
+        {
+            full_name: 'นายวิชัย กล้าหาญ',
+            position: 'ครูแผนกเทคโนโลยีสารสนเทศ',
+            expertise: 'Network, Linux, Cybersecurity',
+            email: 'wichai@school.ac.th',
+            phone: '082-345-6789',
+            photo_url: '',
+        },
+        {
+            full_name: 'นางสาวพรพรรณ ทองดี',
+            position: 'ครูแผนกเทคโนโลยีสารสนเทศ',
+            expertise: 'UI/UX, Frontend, Design Thinking',
+            email: 'pornpun@school.ac.th',
+            phone: '083-456-7890',
+            photo_url: '',
+        },
+    ];
+}
+
 const server = http.createServer(async (req, res) => {
     if (req.url === '/' || req.url === '/index.html') {
         return serveStaticFile(res, path.join(__dirname, 'pubilc', 'index.html'), 'text/html');
@@ -30,7 +59,7 @@ async function getTeachers(res) {
     } catch (error) {
         console.error('Error fetching teacher data:', error);
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify([]));
+        res.end(JSON.stringify(getFallbackTeachers()));
     }
 }
 
@@ -48,7 +77,7 @@ async function fetchTeachers() {
 
         const [tables] = await connection.query("SHOW TABLES LIKE '%teacher%'");
         if (!tables.length) {
-            return [];
+            return getFallbackTeachers();
         }
 
         const tableName = tables[0][Object.keys(tables[0])[0]];
@@ -73,11 +102,11 @@ async function fetchTeachers() {
         }, []);
 
         if (!selectColumns.length) {
-            return [];
+            return getFallbackTeachers();
         }
 
         const [rows] = await connection.query(`SELECT ${selectColumns.join(', ')} FROM \`${tableName}\``);
-        return rows.map((row) => ({
+        const mappedRows = rows.map((row) => ({
             full_name: row.full_name || '',
             position: row.position || '',
             expertise: row.expertise || '',
@@ -85,6 +114,11 @@ async function fetchTeachers() {
             phone: row.phone || '',
             photo_url: row.photo_url || '',
         }));
+
+        return mappedRows.length ? mappedRows : getFallbackTeachers();
+    } catch (error) {
+        console.warn('MySQL unavailable or table missing, using fallback data:', error.message);
+        return getFallbackTeachers();
     } finally {
         if (connection) {
             await connection.end();
@@ -107,6 +141,14 @@ function serveStaticFile(res, filePath, contentType) {
 
 const PORT = 3000;
 
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+    server.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = {
+    getFallbackTeachers,
+    fetchTeachers,
+    server,
+};
